@@ -1,5 +1,5 @@
 
-const chaveApi = 'b996da3b02aa5614c1477f0e22bc09c8';
+const chaveApi = '6bc9f9d814ef31b9d71623fd';
 const dropList   = document.querySelectorAll("form select"),
     fromCurrency = document.querySelector(".from select"),
     toCurrency   = document.querySelector(".to select"),
@@ -63,9 +63,10 @@ function getExchangeRate() {
 
     let url = `https://v6.exchangerate-api.com/v6/${chaveApi}/latest/${fromCurrency.value}`;
 
-    let teste = `https://api.exchangeratesapi.io/v1/latest?acess_key=` + chaveApi;
-
     fetch(url).then(response => response.json()).then(result =>{
+
+        console.log(result);
+
         let exchangeRate = result.conversion_rates[toCurrency.value];
         let totalExRate  = (amountVal * exchangeRate).toFixed(2);
 
